@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
- get 'about' => 'pages#about'
- get 'faq'=> 'pages#faq'
- root 'pages#home'
+ resources :contacts            # this line generates a few other routes/urls for us
+ get '/about' => 'pages#about'
+ get '/faq'=> 'pages#faq'     # other page wich poitns to pages controller and then to specific function inside it i.e faq or about
+ root 'pages#home'           # home page .. main url
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
