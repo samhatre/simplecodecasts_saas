@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-before_filter :select_plan, only: :new   #allows us to run some code before anything in controller gets run 
+ before_filter :select_plan, only: :new  #allows us to run some code before anything in controller gets run 
   
   def create
     super do |resource|
@@ -13,12 +13,14 @@ before_filter :select_plan, only: :new   #allows us to run some code before anyt
       end
     end
   end
+  
+  private     # WE are adding this method so that user can choose only between plan=1 or plan=2 
+    def select_plan
+      unless params[:plan] && (params[:plan] == '1' || params[:plan] == '2')
+        flash[:notice] = "Please select a membership plan to sign up."
+        redirect_to root_url
+      end
+    end
 end
 
-private     # WE are adding this method so that user can choose only between plan=1 or plan=2 
-  def select_plan
-    unless params[:plan] && (params[:plan] == '1' || params[:plan] == '2')
-      flash[:notice] = "Please select a membership plan to sign up."
-      redirect_to root_url
-    end
-  end
+
