@@ -60,7 +60,9 @@ end
 gem 'devise', '3.5.3'
 
 #use stripe for handling payments
-gem 'stripe', '1.32.0'
+gem 'stripe'
+# , '1.32.0'
 
 #use figaro to hide secret keys
-gem 'figaro' , '1.1.1'
+gem 'figaro'
+# , '1.1.1'
