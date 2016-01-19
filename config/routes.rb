@@ -2,7 +2,7 @@ Rails.application.routes.draw do
    devise_for :users, controllers: { registrations: 'users/registrations' }
    # adding nested resource
    resources :users do
-    resource :profile    # every user has single profile
+    resource :profile    # every user has single profile,its linked up in profiles_controller.rb file
   end
   
    resources :contacts            # this line generates a few other routes/urls for us
