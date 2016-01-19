@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  resources :users do
+    resource :profile
+  end
  resources :contacts            # this line generates a few other routes/urls for us
  get '/about' => 'pages#about'
  get '/faq'=> 'pages#faq'     # other page wich poitns to pages controller and then to specific function inside it i.e faq or about
