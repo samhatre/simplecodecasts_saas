@@ -1,5 +1,7 @@
 # controllers files are always named in plural form
 class ProfilesController < ApplicationController
+ before_action :authenticate_user!     #this allows user to access his own profile if he is logged in
+  before_action :only_current_user     #this prohibits user from making chnages in other users profile.
   def new
     # form where a user can fill out their own profile.
     @user = User.find( params[:user_id] )
@@ -37,5 +39,10 @@ end
   private
     def profile_params
       params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
+    end
+    
+    def only_current_user
+        @user = User.find(params(:user_id))
+        redirect_to(root_url) unless @user == current_user  #redirecting the person to home page
     end
 end
