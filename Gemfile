@@ -66,4 +66,4 @@ gem 'stripe', '1.32.0'
 gem 'figaro' , '1.1.1'
 
 #use paperclip for image upload
-gem 'paperclip', '4.2.1'
+gem 'paperclip', '4.3.2'
