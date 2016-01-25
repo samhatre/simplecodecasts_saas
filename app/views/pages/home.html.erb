@@ -11,11 +11,15 @@
      
       <% if current_user.profile %>
         <%= link_to "Edit your profile", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' %>
+        
         <%= link_to "View your profile", user_path(current_user), class: 'btn btn-default btn-lg btn-block' %>
+      
       <% else %>
         <p>Create your profile so that you can share your information with thr community.</p>
         <%= link_to "Create your profile", new_user_profile_path(current_user),class: 'btn btn-default btn-lg btn-block'%>
+      
       <% end %>
+      
     </div>
   </div>    
   

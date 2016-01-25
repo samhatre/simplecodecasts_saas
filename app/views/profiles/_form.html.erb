@@ -1,6 +1,7 @@
  <!-- creating form tag -->
 <!-- this is a partial, main body is in new.html.erb and also in edit.html.erb in views/profile folder  -->
-<%= form_for @profile, url: user_profile_path do |f| %> <!-- for singular resources we need to specify the url -->
+<%= form_for @profile, url: user_profile_path, :html => { :multipart => true } do |f| %> <!-- for singular resources we need to specify the url -->
+   
     <div class="form-group">   <!-- using bootstrap form-group for spacing -->
          <%= f.label :first_name %>
          <%= f.text_field :first_name, class: 'form-control' %>
@@ -9,6 +10,11 @@
     <div>
          <%= f.label :last_name %>
          <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+    
+     <div>
+         <%= f.label :avatar%>
+         <%= f.file_field :avatar, class: 'form-control' %>
     </div>
     
     <div>
