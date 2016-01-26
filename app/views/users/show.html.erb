@@ -4,7 +4,7 @@
     <%= image_tag @user.profile.avatar.url, class: 'user-index-avatar' %>
   </div>
   
-  <div class="col-md-6">
+  <div class="col-md-9">
      <%= @user %><br/>
      <h1><%= @user.profile.first_name %> <%= @user.profile.last_name %></h1>
      
@@ -15,7 +15,7 @@
        <h3>Description</h3> <%= @user.profile.description %>
      </div>
      
-     <% current_user.plan_id == 2 %>
+     <% if current_user.plan_id == 2 %>
         <div class = "well profile-block contact-info">
           <h3>Contact Info</h3>
           <%= @user.profile.phone_number %> <br/>
