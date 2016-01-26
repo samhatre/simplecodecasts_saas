@@ -1,7 +1,7 @@
 <div class="row">
  
   <div class="col-md-3 text-center">
-    <%= image_tag @user.profile.avatar.url %>
+    <%= image_tag @user.profile.avatar.url, class: 'user-index-avatar' %>
   </div>
   
   <div class="col-md-6">
@@ -12,7 +12,8 @@
      <h3> <span class= "job_title_icon"> <%= job_title_icon %> </span> <%= @user.profile.job_title %> </h3>
      
      <div class="well profile-block profile-description">
-       <h3>Description</h3> <%= @user.profile.description %> </div>
+       <h3>Description</h3> <%= @user.profile.description %>
+     </div>
      
      <% current_user.plan_id == 2 %>
         <div class = "well profile-block contact-info">
@@ -20,8 +21,7 @@
           <%= @user.profile.phone_number %> <br/>
           <%= @user.profile.contact_email %> <br/>
         </div>
-     <% end %> 
+    <% end %> 
     
    </div>
-    
 </div>
